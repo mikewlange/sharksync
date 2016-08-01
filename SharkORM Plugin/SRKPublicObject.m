@@ -3,8 +3,11 @@
 //
 
 #import "SRKPublicObject.h"
+#import "SharkSync.h"
 
 @implementation SRKPublicObject
+
+@dynamic recordVisibilityGroup;
 
 - (BOOL)commit {
     return [self commitInGroup:SHARKSYNC_DEFAULT_GROUP];

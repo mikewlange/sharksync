@@ -6,17 +6,17 @@
 
 @implementation SharkSyncChange
 
-@dynamic d,g,ob,p,op,t,pk;
+@dynamic timestamp,path,value,action,sync_op,recordGroup;
 
 + (SRKIndexDefinition *)indexDefinitionForEntity {
     SRKIndexDefinition* idx = [SRKIndexDefinition new];
-    [idx addIndexForProperty:@"pk" propertyOrder:SRKIndexSortOrderAscending];
-    [idx addIndexForProperty:@"t" propertyOrder:SRKIndexSortOrderAscending];
+    [idx addIndexForProperty:@"path" propertyOrder:SRKIndexSortOrderAscending];
+    [idx addIndexForProperty:@"timestamp" propertyOrder:SRKIndexSortOrderAscending];
     return idx;
 }
 
 - (BOOL)entityWillInsert {
-    self.t = [NSDate date];
+    self.timestamp = @([NSDate date].timeIntervalSince1970);
     return YES;
 }
 

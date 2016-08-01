@@ -3,8 +3,10 @@
 //
 
 #import "SharkORM.h"
-#import "SharkSync.h"
 
 @interface SRKPublicObject : SRKObject
+
+@property NSString* Id;
+@property NSString* recordVisibilityGroup;
 
 @end

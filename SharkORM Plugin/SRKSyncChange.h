@@ -7,12 +7,11 @@
 
 @interface SharkSyncChange : SRKObject
 
-@property NSString*                     pk;
-@property NSDate*                       t;
-@property NSString*                     g;
-@property SharkSyncOperation            op;
-@property NSString*                     ob;
-@property NSString*                     p;
-@property NSString*                     d;
+@property NSString*                     path;
+@property NSNumber*                     timestamp;
+@property NSString*                     value;
+@property SharkSyncOperation            action;
+@property NSString*                     recordGroup;
+@property NSString*                     sync_op;
 
 @end

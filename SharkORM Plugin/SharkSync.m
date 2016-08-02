@@ -14,6 +14,20 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "SRKAES256Extension.h"
 
+#ifdef TARGET_OS_IPHONE
+#import <UIKit/UIImage.h>
+typedef UIImage XXImage;
+#else
+#import <AppKit/NSImage.h>
+typedef NSImage XXImage;
+#endif
+
+@interface SharkSync ()
+
+@property (strong) NSMutableDictionary* concurrentRecordGroups;
+
+@end
+
 @implementation SharkSync
 
 + (void)startServiceWithApplicationKey:(NSString*)application_key accountKey:(NSString*)account_key {
@@ -41,6 +55,7 @@
     static id this = nil;
     if (!this) {
         this = [SharkSync new];
+        ((SharkSync*)this).concurrentRecordGroups = [NSMutableDictionary new];
     }
     return this;
 }
@@ -58,6 +73,20 @@
     
     return string;
     
+}
+
++ (NSString*)getEffectiveRecordGroup {
+    @synchronized ([SharkSync sharedObject].concurrentRecordGroups) {
+        return [[SharkSync sharedObject].concurrentRecordGroups objectForKey:[NSString stringWithFormat:@"%@", [NSThread currentThread]]];
+    }
+}
+
++ (void)setEffectiveRecorGroup:(NSString*)group {
+    [[SharkSync sharedObject].concurrentRecordGroups setObject:group forKey:[NSString stringWithFormat:@"%@", [NSThread currentThread]]];
+}
+
++ (void)clearEffectiveRecordGroup {
+    [[SharkSync sharedObject].concurrentRecordGroups removeObjectForKey:[NSString stringWithFormat:@"%@", [NSThread currentThread]]];
 }
 
 + (void)queueObject:(SRKObject *)object withChanges:(NSMutableDictionary*)changes withOperation:(SharkSyncOperation)operation inHashedGroup:(NSString*)group {
@@ -123,7 +152,132 @@
                         change.value = [NSString stringWithFormat:@"%@/%@",type,b64Value];
                         [change commit];
                         
+                    } else if ([value isKindOfClass:[NSDate class]]) {
+                        
+                        type = @"date";
+                        
+                        NSData* dValue = [[NSString stringWithFormat:@"%@", @(((NSDate*)value).timeIntervalSince1970)] dataUsingEncoding: NSUnicodeStringEncoding];
+                        
+                        // call the block in the sync settings to encrypt the data
+                        SharkSync* sync = [SharkSync sharedObject];
+                        SharkSyncSettings* settings = sync.settings;
+                        
+                        dValue = settings.encryptBlock(dValue);
+                        
+                        SharkSyncChange* change = [SharkSyncChange new];
+                        change.path = [NSString stringWithFormat:@"%@/%@/%@", object.Id, [[object class] description], property];
+                        change.action = operation;
+                        change.recordGroup = group;
+                        change.timestamp = @([[NSDate date] timeIntervalSince1970]);
+                        NSString* b64Value = [dValue base64EncodedStringWithOptions:0];
+                        change.value = [NSString stringWithFormat:@"%@/%@",type,b64Value];
+                        [change commit];
+                        
+                    } else if ([value isKindOfClass:[NSData class]]) {
+                        
+                        type = @"bytes";
+                        
+                        NSData* dValue = (NSData*)value;
+                        
+                        // call the block in the sync settings to encrypt the data
+                        SharkSync* sync = [SharkSync sharedObject];
+                        SharkSyncSettings* settings = sync.settings;
+                        
+                        dValue = settings.encryptBlock(dValue);
+                        
+                        SharkSyncChange* change = [SharkSyncChange new];
+                        change.path = [NSString stringWithFormat:@"%@/%@/%@", object.Id, [[object class] description], property];
+                        change.action = operation;
+                        change.recordGroup = group;
+                        change.timestamp = @([[NSDate date] timeIntervalSince1970]);
+                        NSString* b64Value = [dValue base64EncodedStringWithOptions:0];
+                        change.value = [NSString stringWithFormat:@"%@/%@",type,b64Value];
+                        [change commit];
+                        
+                    } else if ([value isKindOfClass:[XXImage class]]) {
+                        
+                        type = @"image";
+                        
+                        NSData* dValue = UIImageJPEGRepresentation(((XXImage*)value), 0.6);
+                        
+                        // call the block in the sync settings to encrypt the data
+                        SharkSync* sync = [SharkSync sharedObject];
+                        SharkSyncSettings* settings = sync.settings;
+                        
+                        dValue = settings.encryptBlock(dValue);
+                        
+                        SharkSyncChange* change = [SharkSyncChange new];
+                        change.path = [NSString stringWithFormat:@"%@/%@/%@", object.Id, [[object class] description], property];
+                        change.action = operation;
+                        change.recordGroup = group;
+                        change.timestamp = @([[NSDate date] timeIntervalSince1970]);
+                        NSString* b64Value = [dValue base64EncodedStringWithOptions:0];
+                        change.value = [NSString stringWithFormat:@"%@/%@",type,b64Value];
+                        [change commit];
+                        
+                    } else if ([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSMutableArray class]] || [value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSMutableDictionary class]]) {
+                        
+                        if ([value isKindOfClass:[NSMutableDictionary class]]) {
+                            type = @"mdictionary";
+                        } else if ([value isKindOfClass:[NSMutableArray class]]) {
+                            type = @"marray";
+                        } else if ([value isKindOfClass:[NSDictionary class]]) {
+                            type = @"dictionary";
+                        } else if ([value isKindOfClass:[NSArray class]]) {
+                            type = @"array";
+                        }
+                        
+                        NSError* error;
+                        NSData* dValue = [NSJSONSerialization dataWithJSONObject:value options:NSJSONWritingPrettyPrinted error:&error];
+
+                        // call the block in the sync settings to encrypt the data
+                        SharkSync* sync = [SharkSync sharedObject];
+                        SharkSyncSettings* settings = sync.settings;
+                        
+                        dValue = settings.encryptBlock(dValue);
+                        
+                        SharkSyncChange* change = [SharkSyncChange new];
+                        change.path = [NSString stringWithFormat:@"%@/%@/%@", object.Id, [[object class] description], property];
+                        change.action = operation;
+                        change.recordGroup = group;
+                        change.timestamp = @([[NSDate date] timeIntervalSince1970]);
+                        NSString* b64Value = [dValue base64EncodedStringWithOptions:0];
+                        change.value = [NSString stringWithFormat:@"%@/%@",type,b64Value];
+                        [change commit];
+                        
+                    } else if ([value isKindOfClass:[SRKObject class]]) {
+                        
+                        type = @"entity";
+                        
+                        NSData* dValue = [[NSString stringWithFormat:@"%@", ((SRKObject*)value).Id] dataUsingEncoding: NSUnicodeStringEncoding];
+                        
+                        // call the block in the sync settings to encrypt the data
+                        SharkSync* sync = [SharkSync sharedObject];
+                        SharkSyncSettings* settings = sync.settings;
+                        
+                        dValue = settings.encryptBlock(dValue);
+                        
+                        SharkSyncChange* change = [SharkSyncChange new];
+                        change.path = [NSString stringWithFormat:@"%@/%@/%@", object.Id, [[object class] description], property];
+                        change.action = operation;
+                        change.recordGroup = group;
+                        change.timestamp = @([[NSDate date] timeIntervalSince1970]);
+                        NSString* b64Value = [dValue base64EncodedStringWithOptions:0];
+                        change.value = [NSString stringWithFormat:@"%@/%@",type,b64Value];
+                        [change commit];
+                        
+                    } else if ([value isKindOfClass:[NSNull class]]) {
+                        
+                        SharkSyncChange* change = [SharkSyncChange new];
+                        change.path = [NSString stringWithFormat:@"%@/%@/%@", object.Id, [[object class] description], property];
+                        change.action = operation;
+                        change.recordGroup = group;
+                        change.timestamp = @([[NSDate date] timeIntervalSince1970]);
+                        change.value = nil;
+                        [change commit];
+                        
                     }
+                
                 }
                 
             }

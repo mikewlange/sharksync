@@ -10,4 +10,7 @@
 
 @interface SRKDeferredChange : SRKObject
 
+@property (strong) NSString*    path;
+@property (strong) NSString*    value;
+
 @end

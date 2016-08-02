@@ -7,6 +7,7 @@
 @interface SRKPublicObject : SRKObject
 
 @property NSString* Id;
-@property NSString* recordVisibilityGroup;
+
+- (BOOL)commitInGroup:(NSString*)group;
 
 @end

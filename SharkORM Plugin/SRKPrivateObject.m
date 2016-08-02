@@ -51,7 +51,55 @@
     }
     self.recordVisibilityGroup = group;
     BOOL exists = self.exists;
+    
+    [SharkSync setEffectiveRecorGroup:group];
+    
     if([super commit]) {
+        
+        [SharkSync queueObject:self withChanges:changes withOperation:exists ? SharkSyncOperationSet : SharkSyncOperationCreate inHashedGroup:group];
+        [SharkSync clearEffectiveRecordGroup];
+        return YES;
+        
+    }
+    [SharkSync clearEffectiveRecordGroup];
+    return NO;
+}
+
+- (BOOL)remove {
+    
+    [SharkSync setEffectiveRecorGroup:self.recordVisibilityGroup];
+    if ([super remove]) {
+        [SharkSync queueObject:self withChanges:nil withOperation:SharkSyncOperationDelete inHashedGroup:self.recordVisibilityGroup];
+        [SharkSync clearEffectiveRecordGroup];
+        return YES;
+    }
+    [SharkSync clearEffectiveRecordGroup];
+    return NO;
+    
+}
+
+- (BOOL)__commitRawWithObjectChain:(SRKObjectChain *)chain {
+    
+    // hash this group
+    NSString* group = [SharkSync getEffectiveRecordGroup];
+    
+    // have shark commit the object as normal
+    NSMutableDictionary* changes = [NSMutableDictionary dictionaryWithDictionary:self.changedValues.copy];
+    if (self.recordVisibilityGroup && ![self.recordVisibilityGroup isEqualToString:group]) {
+        
+        // group has changed, queue a delete for the old record before the commit goes through for the new
+        [SharkSync queueObject:self withChanges:nil withOperation:SharkSyncOperationDelete inHashedGroup:self.recordVisibilityGroup];
+        
+        // create a new uuid for this record, as it has to appear to the server to be new
+        [self setId:[[NSUUID UUID] UUIDString]];
+        
+        // now ensure that all values are written for this new record
+        changes = [NSMutableDictionary dictionaryWithDictionary:self.fieldData];
+        
+    }
+    self.recordVisibilityGroup = group;
+    BOOL exists = self.exists;
+    if([super __commitRawWithObjectChain:chain]) {
         
         [SharkSync queueObject:self withChanges:changes withOperation:exists ? SharkSyncOperationSet : SharkSyncOperationCreate inHashedGroup:group];
         return YES;
@@ -59,11 +107,18 @@
     }
     
     return NO;
+
 }
 
-- (BOOL)remove {
-    [SharkSync queueObject:self withChanges:nil withOperation:SharkSyncOperationDelete inHashedGroup:self.recordVisibilityGroup];
-    return [super remove];
+- (BOOL)__removeRaw {
+    
+    if ([super __removeRaw]) {
+        [SharkSync queueObject:self withChanges:nil withOperation:SharkSyncOperationDelete inHashedGroup:[SharkSync getEffectiveRecordGroup]];
+        return YES;
+    }
+    
+    return NO;
+    
 }
 
 @end

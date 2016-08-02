@@ -38,6 +38,9 @@ typedef enum : NSUInteger {
 + (void)addVisibilityGroup:(NSString*)visibilityGroup;
 + (void)removeVisibilityGroup:(NSString*)visibilityGroup;
 + (NSString*)MD5FromString:(NSString*)inVar;
++ (NSString*)getEffectiveRecordGroup;
++ (void)setEffectiveRecorGroup:(NSString*)group;
++ (void)clearEffectiveRecordGroup;
 
 @end
 

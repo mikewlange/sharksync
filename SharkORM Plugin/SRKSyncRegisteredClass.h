@@ -20,12 +20,10 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-
-
 #import "SharkORM.h"
 
-@interface SRKSyncOptions : SRKObject
+@interface SRKSyncRegisteredClass : SRKObject
 
-@property (strong) NSString* device_id;
+@property (strong) NSString* className;
 
 @end

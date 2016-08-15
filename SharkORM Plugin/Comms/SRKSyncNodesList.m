@@ -20,12 +20,33 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import "SRKSyncNodesList.h"
 
+@implementation SRKSyncNodesList
 
-#import "SharkORM.h"
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.nodes = [NSMutableArray new];
+    }
+    return self;
+}
 
-@interface SRKSyncOptions : SRKObject
+- (void)addNodeWithAddress:(NSString *)pathAndPort priority:(int)priority {
+    
+    // simples way to add more random chance of the node being picked for the weighting
+    for (int i=0; i < priority; i++) {
+        [self.nodes addObject:pathAndPort];
+    }
+    
+}
 
-@property (strong) NSString* device_id;
+- (NSString *)pickNode {
+    
+    srand([[NSDate date] timeIntervalSince1970]);
+    int index = rand() % (_nodes.count);
+    return [_nodes objectAtIndex:index];
+    
+}
 
 @end

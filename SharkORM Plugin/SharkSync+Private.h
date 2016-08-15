@@ -22,10 +22,18 @@
 
 
 
-#import "SharkORM.h"
+#ifndef SharkSync_Private_h
+#define SharkSync_Private_h
 
-@interface SRKSyncOptions : SRKObject
+#import "SharkSync.h"
 
-@property (strong) NSString* device_id;
+@interface SharkSync ()
+
++ (NSString*)MD5FromString:(NSString*)inVar;
++ (NSString*)getEffectiveRecordGroup;
++ (void)setEffectiveRecorGroup:(NSString*)group;
++ (void)clearEffectiveRecordGroup;
 
 @end
+
+#endif /* SharkSync_Private_h */

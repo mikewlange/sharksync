@@ -20,12 +20,17 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import "SRKSyncRegisteredClass.h"
 
+@implementation SRKSyncRegisteredClass
 
-#import "SharkORM.h"
+@dynamic className;
 
-@interface SRKSyncOptions : SRKObject
-
-@property (strong) NSString* device_id;
++ (SRKIndexDefinition *)indexDefinitionForEntity {
+    SRKIndexDefinition* indexDef = [SRKIndexDefinition new];
+    // use SRKIndexSortOrderNoCase because faster for strings
+    [indexDef addIndexForProperty:@"className" propertyOrder:SRKIndexSortOrderNoCase];
+    return indexDef;
+}
 
 @end

@@ -20,12 +20,8 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import <Foundation/Foundation.h>
 
-
-#import "SharkORM.h"
-
-@interface SRKSyncOptions : SRKObject
-
-@property (strong) NSString* device_id;
+@interface SRKSyncAuthObject : NSObject
 
 @end

@@ -1,6 +1,26 @@
+//    MIT License
 //
-//  SRKSync.m
+//    Copyright (c) 2016 SharkSync
 //
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the "Software"), to deal
+//    in the Software without restriction, including without limitation the rights
+//    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//    copies of the Software, and to permit persons to whom the Software is
+//    furnished to do so, subject to the following conditions:
+//
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+//
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//    SOFTWARE.
+
+
 
 #import "SharkSync.h"
 #import "SharkORM+Private.h"
@@ -30,7 +50,7 @@ typedef NSImage XXImage;
 
 @implementation SharkSync
 
-+ (void)startServiceWithApplicationKey:(NSString*)application_key accountKey:(NSString*)account_key {
++ (void)startServiceWithApplicationId:(NSString*)application_key apiKey:(NSString*)account_key {
     
     /* get the options object */
     SRKSyncOptions* options = [[[[SRKSyncOptions query] limit:1] fetch] firstObject];
@@ -73,6 +93,24 @@ typedef NSImage XXImage;
     
     return string;
     
+}
+
++ (void)addVisibilityGroup:(NSString *)visibilityGroup {
+    
+    // adds a visibility group to the table, to be sent with all sync requests.
+    // AH originally wanted the groups to be set per class, but i think it's better that a visibility group be across all classes, much good idea for the dev
+    
+    if (![[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", [self MD5FromString:visibilityGroup]] limit:1] count]) {
+        SRKSyncGroup* newGroup = [SRKSyncGroup new];
+        newGroup.groupName = [self MD5FromString:visibilityGroup];
+        newGroup.tidemark_uuid = @"";
+        [newGroup commit];
+    }
+    
+}
+
++ (void)removeVisibilityGroup:(NSString *)visibilityGroup {
+    [[[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", [self MD5FromString:visibilityGroup]] limit:1] fetch] removeAll];
 }
 
 + (NSString*)getEffectiveRecordGroup {

@@ -20,12 +20,13 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import <Foundation/Foundation.h>
 
+@interface SRKSyncNodesList : NSObject
 
-#import "SharkORM.h"
+@property (strong) NSMutableArray* nodes;
 
-@interface SRKSyncOptions : SRKObject
-
-@property (strong) NSString* device_id;
+- (NSDictionary*)pickNode;
+- (void)addNodeWithAddress:(NSString*)pathAndPort priority:(int)priority;
 
 @end

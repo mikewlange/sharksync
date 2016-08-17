@@ -21,11 +21,21 @@
 //    SOFTWARE.
 
 
+#import <Foundation/Foundation.h>
+#import "SRKSyncNodesList.h"
+#import "STHTTPRequest.h"
 
-#import "SharkORM.h"
+@interface BaseCommsObject : NSObject
 
-@interface SRKSyncOptions : SRKObject
-
+@property (strong) NSString* app_id;
+@property (strong) NSString* app_api_access_key;
 @property (strong) NSString* device_id;
+
+- (void)makeRequestToMethod:(NSString*)method apiVersion:(NSString*)apiVersion toNodes:(SRKSyncNodesList*)nodes;
+
+- (void)requestResponded:(NSDictionary*)response;
+- (void)requestDidError:(NSError*)NSError;
+- (NSMutableDictionary*)requestObject;
+- (void)execute;
 
 @end

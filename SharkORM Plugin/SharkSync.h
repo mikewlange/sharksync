@@ -53,7 +53,7 @@ typedef enum : NSUInteger {
 @property (strong) NSString* deviceId;
 
 + (instancetype)sharedObject;
-+ (void)startServiceWithApplicationKey:(NSString*)application_key accountKey:(NSString*)account_key;
++ (void)startServiceWithApplicationId:(NSString*)application_key apiKey:(NSString*)account_key;
 + (void)queueObject:(SRKObject *)object withChanges:(NSMutableDictionary*)changes withOperation:(SharkSyncOperation)operation inHashedGroup:(NSString*)group;
 
 // group management

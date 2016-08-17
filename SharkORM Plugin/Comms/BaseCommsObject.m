@@ -21,6 +21,7 @@
 //    SOFTWARE.
 
 #import "BaseCommsObject.h"
+#import "SharkSync.h"
 
 @interface BaseCommsObject ()
 
@@ -49,11 +50,14 @@
     NSDictionary* requestData = [self requestObject];
     if (requestData) {
         
-        STHTTPRequest *r = [STHTTPRequest requestWithURLString:[NSString stringWithFormat:@"%@/%@/%@", self.nodes.pickNode, self.apiVersion, self.method]];
+        STHTTPRequest *r = [STHTTPRequest requestWithURLString:[NSString stringWithFormat:@"%@/%@", self.nodes.pickNode, self.method]];
         
         NSError* error = nil;
-        //NSString* json = [NSJSONSerialization json]
-        
+        NSData* json = [NSJSONSerialization dataWithJSONObject:requestData options:NSJSONWritingPrettyPrinted error:&error];
+        [r setRawPOSTData:json];
+        [r setHTTPMethod:@"POST"];
+        [r setPOSTDataEncoding:NSUTF8StringEncoding];
+        [r setRequestHeaders:[NSMutableDictionary dictionaryWithDictionary:@{@"Content-Type":@"application/json"}]];
         __weak BaseCommsObject* weakSelf = self;
         
         r.completionBlock = ^(NSDictionary *headers, NSString *body) {
@@ -93,6 +97,10 @@
     
 }
 
+- (void)execute {
+    // overriden in implementation
+}
+
 - (void)requestResponded:(NSDictionary *)response {
     // overriden in implementation
 }
@@ -102,10 +110,16 @@
 }
 
 - (NSDictionary*)requestObject {
-    return @{@"app_id" : self.app_id ? self.app_id : [NSNull null],
+    
+    // also overridden in implementaion, taking this value and merging it in
+    
+    self.app_id = [[SharkSync sharedObject] applicationKey];
+    self.device_id = [[SharkSync sharedObject] deviceId];
+    self.app_api_access_key = [[SharkSync sharedObject] accountKeyKey];
+    
+    return [NSMutableDictionary dictionaryWithDictionary:@{@"app_id" : self.app_id ? self.app_id : [NSNull null],
              @"app_api_access_key" : self.app_api_access_key ? self.app_api_access_key : [NSNull null],
-             @"client_time" : @([NSDate date].timeIntervalSince1970),
-             @"device_id" : self.device_id ? self.device_id : [NSNull null]};
+             @"device_id" : @"9e4ac6a5-aac3-4362-b530-0be53a9e6619"}]; //self.device_id ? self.device_id : [NSNull null]
 }
 
 @end

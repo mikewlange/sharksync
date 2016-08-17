@@ -20,22 +20,8 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import "SRKSyncAuthObject.h"
 
-#import <Foundation/Foundation.h>
-#import "SRKSyncNodesList.h"
-#import "STHTTPRequest.h"
-
-@interface BaseCommsObject : NSObject
-
-@property (strong) NSString* app_id;
-@property (strong) NSString* app_api_access_key;
-@property (strong) NSString* device_id;
-
-- (void)makeRequestToMethod:(NSString*)method apiVersion:(NSString*)apiVersion toNodes:(SRKSyncNodesList*)nodes;
-
-- (void)requestResponded:(NSDictionary*)response;
-- (void)requestDidError:(NSError*)NSError;
-- (NSMutableDictionary*)requestObject;
-- (void)execute;
+@implementation SRKSyncAuthObject
 
 @end

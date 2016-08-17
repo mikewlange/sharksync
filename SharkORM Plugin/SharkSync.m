@@ -50,7 +50,7 @@ typedef NSImage XXImage;
 
 @implementation SharkSync
 
-+ (void)startServiceWithApplicationKey:(NSString*)application_key accountKey:(NSString*)account_key {
++ (void)startServiceWithApplicationId:(NSString*)application_key apiKey:(NSString*)account_key {
     
     /* get the options object */
     SRKSyncOptions* options = [[[[SRKSyncOptions query] limit:1] fetch] firstObject];
@@ -100,17 +100,17 @@ typedef NSImage XXImage;
     // adds a visibility group to the table, to be sent with all sync requests.
     // AH originally wanted the groups to be set per class, but i think it's better that a visibility group be across all classes, much good idea for the dev
     
-    if (![[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", visibilityGroup] limit:1] count]) {
+    if (![[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", [self MD5FromString:visibilityGroup]] limit:1] count]) {
         SRKSyncGroup* newGroup = [SRKSyncGroup new];
-        newGroup.groupName = visibilityGroup;
-        newGroup.tidemark_uuid = nil;
+        newGroup.groupName = [self MD5FromString:visibilityGroup];
+        newGroup.tidemark_uuid = @"";
         [newGroup commit];
     }
     
 }
 
 + (void)removeVisibilityGroup:(NSString *)visibilityGroup {
-    [[[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", visibilityGroup] limit:1] fetch] removeAll];
+    [[[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", [self MD5FromString:visibilityGroup]] limit:1] fetch] removeAll];
 }
 
 + (NSString*)getEffectiveRecordGroup {

@@ -184,4 +184,8 @@
     
 }
 
+- (BOOL)__removeRawNoSync {
+    return [super __removeRaw];
+}
+
 @end

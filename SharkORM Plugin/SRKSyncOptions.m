@@ -24,6 +24,6 @@
 
 @implementation SRKSyncOptions
 
-@dynamic device_id;
+@dynamic device_id, sync_id;
 
 @end

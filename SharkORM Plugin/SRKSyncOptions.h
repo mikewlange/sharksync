@@ -27,5 +27,6 @@
 @interface SRKSyncOptions : SRKObject
 
 @property (strong) NSString* device_id;
+@property (strong) NSString* sync_id;
 
 @end

@@ -33,6 +33,7 @@
 + (NSString*)getEffectiveRecordGroup;
 + (void)setEffectiveRecorGroup:(NSString*)group;
 + (void)clearEffectiveRecordGroup;
++ (id)decryptValue:(NSString*)value;
 
 @end
 

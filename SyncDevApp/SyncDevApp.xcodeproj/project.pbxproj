@@ -1,0 +1,719 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A1604CA1D68FB8A00BFF535 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604C91D68FB8A00BFF535 /* main.m */; };
+		3A1604CD1D68FB8A00BFF535 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604CC1D68FB8A00BFF535 /* AppDelegate.m */; };
+		3A1604D01D68FB8A00BFF535 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604CF1D68FB8A00BFF535 /* ViewController.m */; };
+		3A1604D31D68FB8A00BFF535 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1604D11D68FB8A00BFF535 /* Main.storyboard */; };
+		3A1604D51D68FB8A00BFF535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1604D41D68FB8A00BFF535 /* Assets.xcassets */; };
+		3A1604D81D68FB8A00BFF535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1604D61D68FB8A00BFF535 /* LaunchScreen.storyboard */; };
+		3A1604FF1D68FB9500BFF535 /* BaseCommsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604E21D68FB9500BFF535 /* BaseCommsObject.m */; };
+		3A1605001D68FB9500BFF535 /* SyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604E51D68FB9500BFF535 /* SyncRequest.m */; };
+		3A1605011D68FB9500BFF535 /* SRKSyncNodesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604E71D68FB9500BFF535 /* SRKSyncNodesList.m */; };
+		3A1605021D68FB9500BFF535 /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604E91D68FB9500BFF535 /* STHTTPRequest.m */; };
+		3A1605031D68FB9500BFF535 /* SharkSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604EC1D68FB9500BFF535 /* SharkSync.m */; };
+		3A1605041D68FB9500BFF535 /* SRKDeferredChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604EE1D68FB9500BFF535 /* SRKDeferredChange.m */; };
+		3A1605051D68FB9500BFF535 /* SRKDefunctObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604F01D68FB9500BFF535 /* SRKDefunctObject.m */; };
+		3A1605061D68FB9500BFF535 /* SRKPrivateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604F21D68FB9500BFF535 /* SRKPrivateObject.m */; };
+		3A1605071D68FB9500BFF535 /* SRKPublicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604F41D68FB9500BFF535 /* SRKPublicObject.m */; };
+		3A1605081D68FB9500BFF535 /* SRKSyncAuthObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604F61D68FB9500BFF535 /* SRKSyncAuthObject.m */; };
+		3A1605091D68FB9500BFF535 /* SRKSyncChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604F81D68FB9500BFF535 /* SRKSyncChange.m */; };
+		3A16050A1D68FB9500BFF535 /* SRKSyncGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604FA1D68FB9500BFF535 /* SRKSyncGroup.m */; };
+		3A16050B1D68FB9500BFF535 /* SRKSyncOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604FC1D68FB9500BFF535 /* SRKSyncOptions.m */; };
+		3A16050C1D68FB9500BFF535 /* SRKSyncRegisteredClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604FE1D68FB9500BFF535 /* SRKSyncRegisteredClass.m */; };
+		3A16055A1D68FBB200BFF535 /* SRKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605111D68FBB200BFF535 /* SRKEvent.m */; };
+		3A16055B1D68FBB200BFF535 /* SRKEventBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605131D68FBB200BFF535 /* SRKEventBlockHolder.m */; };
+		3A16055C1D68FBB200BFF535 /* SRKEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605151D68FBB200BFF535 /* SRKEventHandler.m */; };
+		3A16055D1D68FBB200BFF535 /* SRKEventRegistryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605171D68FBB200BFF535 /* SRKEventRegistryObject.m */; };
+		3A16055E1D68FBB200BFF535 /* FTSRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16051A1D68FBB200BFF535 /* FTSRegistry.m */; };
+		3A16055F1D68FBB200BFF535 /* SRKFuzzyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16051D1D68FBB200BFF535 /* SRKFuzzyStore.m */; };
+		3A1605601D68FBB200BFF535 /* SRKIndexDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605201D68FBB200BFF535 /* SRKIndexDefinition.m */; };
+		3A1605611D68FBB200BFF535 /* SRKAES256Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605231D68FBB200BFF535 /* SRKAES256Extension.m */; };
+		3A1605621D68FBB200BFF535 /* SRKEncryptedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605251D68FBB200BFF535 /* SRKEncryptedObject.m */; };
+		3A1605631D68FBB200BFF535 /* SRKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605271D68FBB200BFF535 /* SRKObject.m */; };
+		3A1605641D68FBB200BFF535 /* SRKObjectChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605291D68FBB200BFF535 /* SRKObjectChain.m */; };
+		3A1605651D68FBB200BFF535 /* SRKRawResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16052A1D68FBB200BFF535 /* SRKRawResults.m */; };
+		3A1605661D68FBB200BFF535 /* SRKResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16052C1D68FBB200BFF535 /* SRKResultSet.m */; };
+		3A1605671D68FBB200BFF535 /* SRKStringObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16052D1D68FBB200BFF535 /* SRKStringObject.m */; };
+		3A1605681D68FBB200BFF535 /* SRKUnsupportedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16052F1D68FBB200BFF535 /* SRKUnsupportedObject.m */; };
+		3A1605691D68FBB200BFF535 /* SRKFTSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605311D68FBB200BFF535 /* SRKFTSQuery.m */; };
+		3A16056A1D68FBB200BFF535 /* SRKJoinObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605331D68FBB200BFF535 /* SRKJoinObject.m */; };
+		3A16056B1D68FBB200BFF535 /* SRKQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605351D68FBB200BFF535 /* SRKQuery.m */; };
+		3A16056C1D68FBB200BFF535 /* SRKQueryAsyncHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605371D68FBB200BFF535 /* SRKQueryAsyncHandler.m */; };
+		3A16056D1D68FBB200BFF535 /* SRKQueryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605381D68FBB200BFF535 /* SRKQueryProfile.m */; };
+		3A16056E1D68FBB200BFF535 /* SRKRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16053B1D68FBB200BFF535 /* SRKRegistry.m */; };
+		3A16056F1D68FBB200BFF535 /* SRKRegistryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16053D1D68FBB200BFF535 /* SRKRegistryEntry.m */; };
+		3A1605701D68FBB200BFF535 /* SharkORM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605401D68FBB200BFF535 /* SharkORM.m */; };
+		3A1605711D68FBB200BFF535 /* SRKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605421D68FBB200BFF535 /* SRKError.m */; };
+		3A1605721D68FBB200BFF535 /* SRKLazyLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605441D68FBB200BFF535 /* SRKLazyLoader.m */; };
+		3A1605731D68FBB200BFF535 /* SRKRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605461D68FBB200BFF535 /* SRKRelationship.m */; };
+		3A1605741D68FBB200BFF535 /* SRKSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605471D68FBB200BFF535 /* SRKSettings.m */; };
+		3A1605751D68FBB200BFF535 /* SRKSQLiteHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605491D68FBB200BFF535 /* SRKSQLiteHandle.m */; };
+		3A1605761D68FBB200BFF535 /* SRKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16054B1D68FBB200BFF535 /* SRKUtilities.m */; };
+		3A1605771D68FBB200BFF535 /* SRKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16054E1D68FBB200BFF535 /* SRKContext.m */; };
+		3A1605781D68FBB200BFF535 /* SRKTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16054F1D68FBB200BFF535 /* SRKTransaction.m */; };
+		3A1605791D68FBB200BFF535 /* SRKTransactionElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605511D68FBB200BFF535 /* SRKTransactionElement.m */; };
+		3A16057A1D68FBB200BFF535 /* SRKTransactionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605531D68FBB200BFF535 /* SRKTransactionGroup.m */; };
+		3A16057B1D68FBB200BFF535 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A1605541D68FBB200BFF535 /* Info.plist */; };
+		3A16057C1D68FBB200BFF535 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A1605561D68FBB200BFF535 /* sqlite3.c */; };
+		3A16057D1D68FBB200BFF535 /* TODO.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3A1605591D68FBB200BFF535 /* TODO.rtf */; };
+		3A1605801D68FC4E00BFF535 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A16057F1D68FC4E00BFF535 /* Person.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A1604C51D68FB8A00BFF535 /* SyncDevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncDevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A1604C91D68FB8A00BFF535 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A1604CB1D68FB8A00BFF535 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3A1604CC1D68FB8A00BFF535 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3A1604CE1D68FB8A00BFF535 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3A1604CF1D68FB8A00BFF535 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3A1604D21D68FB8A00BFF535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A1604D41D68FB8A00BFF535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A1604D71D68FB8A00BFF535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A1604D91D68FB8A00BFF535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A1604E11D68FB9500BFF535 /* BaseCommsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCommsObject.h; sourceTree = "<group>"; };
+		3A1604E21D68FB9500BFF535 /* BaseCommsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCommsObject.m; sourceTree = "<group>"; };
+		3A1604E41D68FB9500BFF535 /* SyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncRequest.h; sourceTree = "<group>"; };
+		3A1604E51D68FB9500BFF535 /* SyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncRequest.m; sourceTree = "<group>"; };
+		3A1604E61D68FB9500BFF535 /* SRKSyncNodesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKSyncNodesList.h; sourceTree = "<group>"; };
+		3A1604E71D68FB9500BFF535 /* SRKSyncNodesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSyncNodesList.m; sourceTree = "<group>"; };
+		3A1604E81D68FB9500BFF535 /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
+		3A1604E91D68FB9500BFF535 /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
+		3A1604EA1D68FB9500BFF535 /* SharkSync+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SharkSync+Private.h"; sourceTree = "<group>"; };
+		3A1604EB1D68FB9500BFF535 /* SharkSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharkSync.h; sourceTree = "<group>"; };
+		3A1604EC1D68FB9500BFF535 /* SharkSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharkSync.m; sourceTree = "<group>"; };
+		3A1604ED1D68FB9500BFF535 /* SRKDeferredChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKDeferredChange.h; sourceTree = "<group>"; };
+		3A1604EE1D68FB9500BFF535 /* SRKDeferredChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKDeferredChange.m; sourceTree = "<group>"; };
+		3A1604EF1D68FB9500BFF535 /* SRKDefunctObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKDefunctObject.h; sourceTree = "<group>"; };
+		3A1604F01D68FB9500BFF535 /* SRKDefunctObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKDefunctObject.m; sourceTree = "<group>"; };
+		3A1604F11D68FB9500BFF535 /* SRKPrivateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKPrivateObject.h; sourceTree = "<group>"; };
+		3A1604F21D68FB9500BFF535 /* SRKPrivateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKPrivateObject.m; sourceTree = "<group>"; };
+		3A1604F31D68FB9500BFF535 /* SRKPublicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKPublicObject.h; sourceTree = "<group>"; };
+		3A1604F41D68FB9500BFF535 /* SRKPublicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKPublicObject.m; sourceTree = "<group>"; };
+		3A1604F51D68FB9500BFF535 /* SRKSyncAuthObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKSyncAuthObject.h; sourceTree = "<group>"; };
+		3A1604F61D68FB9500BFF535 /* SRKSyncAuthObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSyncAuthObject.m; sourceTree = "<group>"; };
+		3A1604F71D68FB9500BFF535 /* SRKSyncChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKSyncChange.h; sourceTree = "<group>"; };
+		3A1604F81D68FB9500BFF535 /* SRKSyncChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSyncChange.m; sourceTree = "<group>"; };
+		3A1604F91D68FB9500BFF535 /* SRKSyncGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKSyncGroup.h; sourceTree = "<group>"; };
+		3A1604FA1D68FB9500BFF535 /* SRKSyncGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSyncGroup.m; sourceTree = "<group>"; };
+		3A1604FB1D68FB9500BFF535 /* SRKSyncOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKSyncOptions.h; sourceTree = "<group>"; };
+		3A1604FC1D68FB9500BFF535 /* SRKSyncOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSyncOptions.m; sourceTree = "<group>"; };
+		3A1604FD1D68FB9500BFF535 /* SRKSyncRegisteredClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKSyncRegisteredClass.h; sourceTree = "<group>"; };
+		3A1604FE1D68FB9500BFF535 /* SRKSyncRegisteredClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSyncRegisteredClass.m; sourceTree = "<group>"; };
+		3A16050F1D68FBB200BFF535 /* DBAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBAccess.h; sourceTree = "<group>"; };
+		3A1605111D68FBB200BFF535 /* SRKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKEvent.m; sourceTree = "<group>"; };
+		3A1605121D68FBB200BFF535 /* SRKEventBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKEventBlockHolder.h; sourceTree = "<group>"; };
+		3A1605131D68FBB200BFF535 /* SRKEventBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKEventBlockHolder.m; sourceTree = "<group>"; };
+		3A1605141D68FBB200BFF535 /* SRKEventHandler+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRKEventHandler+Private.h"; sourceTree = "<group>"; };
+		3A1605151D68FBB200BFF535 /* SRKEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKEventHandler.m; sourceTree = "<group>"; };
+		3A1605161D68FBB200BFF535 /* SRKEventRegistryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKEventRegistryObject.h; sourceTree = "<group>"; };
+		3A1605171D68FBB200BFF535 /* SRKEventRegistryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKEventRegistryObject.m; sourceTree = "<group>"; };
+		3A1605191D68FBB200BFF535 /* FTSRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTSRegistry.h; sourceTree = "<group>"; };
+		3A16051A1D68FBB200BFF535 /* FTSRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTSRegistry.m; sourceTree = "<group>"; };
+		3A16051C1D68FBB200BFF535 /* SRKFuzzyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKFuzzyStore.h; sourceTree = "<group>"; };
+		3A16051D1D68FBB200BFF535 /* SRKFuzzyStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKFuzzyStore.m; sourceTree = "<group>"; };
+		3A16051F1D68FBB200BFF535 /* SRKIndexDefinition+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRKIndexDefinition+Private.h"; sourceTree = "<group>"; };
+		3A1605201D68FBB200BFF535 /* SRKIndexDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKIndexDefinition.m; sourceTree = "<group>"; };
+		3A1605221D68FBB200BFF535 /* SRKAES256Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKAES256Extension.h; sourceTree = "<group>"; };
+		3A1605231D68FBB200BFF535 /* SRKAES256Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKAES256Extension.m; sourceTree = "<group>"; };
+		3A1605241D68FBB200BFF535 /* SRKEncryptedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKEncryptedObject.h; sourceTree = "<group>"; };
+		3A1605251D68FBB200BFF535 /* SRKEncryptedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKEncryptedObject.m; sourceTree = "<group>"; };
+		3A1605261D68FBB200BFF535 /* SRKObject+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRKObject+Private.h"; sourceTree = "<group>"; };
+		3A1605271D68FBB200BFF535 /* SRKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKObject.m; sourceTree = "<group>"; };
+		3A1605281D68FBB200BFF535 /* SRKObjectChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKObjectChain.h; sourceTree = "<group>"; };
+		3A1605291D68FBB200BFF535 /* SRKObjectChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKObjectChain.m; sourceTree = "<group>"; };
+		3A16052A1D68FBB200BFF535 /* SRKRawResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKRawResults.m; sourceTree = "<group>"; };
+		3A16052B1D68FBB200BFF535 /* SRKResultSet+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRKResultSet+Private.h"; sourceTree = "<group>"; };
+		3A16052C1D68FBB200BFF535 /* SRKResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKResultSet.m; sourceTree = "<group>"; };
+		3A16052D1D68FBB200BFF535 /* SRKStringObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKStringObject.m; sourceTree = "<group>"; };
+		3A16052E1D68FBB200BFF535 /* SRKUnsupportedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKUnsupportedObject.h; sourceTree = "<group>"; };
+		3A16052F1D68FBB200BFF535 /* SRKUnsupportedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKUnsupportedObject.m; sourceTree = "<group>"; };
+		3A1605311D68FBB200BFF535 /* SRKFTSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKFTSQuery.m; sourceTree = "<group>"; };
+		3A1605321D68FBB200BFF535 /* SRKJoinObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKJoinObject.h; sourceTree = "<group>"; };
+		3A1605331D68FBB200BFF535 /* SRKJoinObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKJoinObject.m; sourceTree = "<group>"; };
+		3A1605341D68FBB200BFF535 /* SRKQuery+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRKQuery+Private.h"; sourceTree = "<group>"; };
+		3A1605351D68FBB200BFF535 /* SRKQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKQuery.m; sourceTree = "<group>"; };
+		3A1605361D68FBB200BFF535 /* SRKQueryAsyncHandler+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRKQueryAsyncHandler+Private.h"; sourceTree = "<group>"; };
+		3A1605371D68FBB200BFF535 /* SRKQueryAsyncHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKQueryAsyncHandler.m; sourceTree = "<group>"; };
+		3A1605381D68FBB200BFF535 /* SRKQueryProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKQueryProfile.m; sourceTree = "<group>"; };
+		3A16053A1D68FBB200BFF535 /* SRKRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKRegistry.h; sourceTree = "<group>"; };
+		3A16053B1D68FBB200BFF535 /* SRKRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKRegistry.m; sourceTree = "<group>"; };
+		3A16053C1D68FBB200BFF535 /* SRKRegistryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKRegistryEntry.h; sourceTree = "<group>"; };
+		3A16053D1D68FBB200BFF535 /* SRKRegistryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKRegistryEntry.m; sourceTree = "<group>"; };
+		3A16053E1D68FBB200BFF535 /* SharkORM+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SharkORM+Private.h"; sourceTree = "<group>"; };
+		3A16053F1D68FBB200BFF535 /* SharkORM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharkORM.h; sourceTree = "<group>"; };
+		3A1605401D68FBB200BFF535 /* SharkORM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharkORM.m; sourceTree = "<group>"; };
+		3A1605411D68FBB200BFF535 /* SRKDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKDefinitions.h; sourceTree = "<group>"; };
+		3A1605421D68FBB200BFF535 /* SRKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKError.m; sourceTree = "<group>"; };
+		3A1605431D68FBB200BFF535 /* SRKLazyLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKLazyLoader.h; sourceTree = "<group>"; };
+		3A1605441D68FBB200BFF535 /* SRKLazyLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKLazyLoader.m; sourceTree = "<group>"; };
+		3A1605451D68FBB200BFF535 /* SRKRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKRelationship.h; sourceTree = "<group>"; };
+		3A1605461D68FBB200BFF535 /* SRKRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKRelationship.m; sourceTree = "<group>"; };
+		3A1605471D68FBB200BFF535 /* SRKSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSettings.m; sourceTree = "<group>"; };
+		3A1605481D68FBB200BFF535 /* SRKSQLiteHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKSQLiteHandle.h; sourceTree = "<group>"; };
+		3A1605491D68FBB200BFF535 /* SRKSQLiteHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKSQLiteHandle.m; sourceTree = "<group>"; };
+		3A16054A1D68FBB200BFF535 /* SRKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKUtilities.h; sourceTree = "<group>"; };
+		3A16054B1D68FBB200BFF535 /* SRKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKUtilities.m; sourceTree = "<group>"; };
+		3A16054D1D68FBB200BFF535 /* SRKContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKContext.h; sourceTree = "<group>"; };
+		3A16054E1D68FBB200BFF535 /* SRKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKContext.m; sourceTree = "<group>"; };
+		3A16054F1D68FBB200BFF535 /* SRKTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKTransaction.m; sourceTree = "<group>"; };
+		3A1605501D68FBB200BFF535 /* SRKTransactionElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKTransactionElement.h; sourceTree = "<group>"; };
+		3A1605511D68FBB200BFF535 /* SRKTransactionElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKTransactionElement.m; sourceTree = "<group>"; };
+		3A1605521D68FBB200BFF535 /* SRKTransactionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKTransactionGroup.h; sourceTree = "<group>"; };
+		3A1605531D68FBB200BFF535 /* SRKTransactionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKTransactionGroup.m; sourceTree = "<group>"; };
+		3A1605541D68FBB200BFF535 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A1605561D68FBB200BFF535 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
+		3A1605571D68FBB200BFF535 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
+		3A1605581D68FBB200BFF535 /* sqlite3ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3ext.h; sourceTree = "<group>"; };
+		3A1605591D68FBB200BFF535 /* TODO.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = TODO.rtf; sourceTree = "<group>"; };
+		3A16057E1D68FC4E00BFF535 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		3A16057F1D68FC4E00BFF535 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A1604C21D68FB8A00BFF535 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A1604BC1D68FB8A00BFF535 = {
+			isa = PBXGroup;
+			children = (
+				3A16050D1D68FBB200BFF535 /* SharkORM */,
+				3A1604DF1D68FB9500BFF535 /* SharkORM Plugin */,
+				3A1604C71D68FB8A00BFF535 /* SyncDevApp */,
+				3A1604C61D68FB8A00BFF535 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A1604C61D68FB8A00BFF535 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A1604C51D68FB8A00BFF535 /* SyncDevApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A1604C71D68FB8A00BFF535 /* SyncDevApp */ = {
+			isa = PBXGroup;
+			children = (
+				3A1604CB1D68FB8A00BFF535 /* AppDelegate.h */,
+				3A1604CC1D68FB8A00BFF535 /* AppDelegate.m */,
+				3A1604CE1D68FB8A00BFF535 /* ViewController.h */,
+				3A1604CF1D68FB8A00BFF535 /* ViewController.m */,
+				3A1604D11D68FB8A00BFF535 /* Main.storyboard */,
+				3A1604D41D68FB8A00BFF535 /* Assets.xcassets */,
+				3A1604D61D68FB8A00BFF535 /* LaunchScreen.storyboard */,
+				3A1604D91D68FB8A00BFF535 /* Info.plist */,
+				3A1604C81D68FB8A00BFF535 /* Supporting Files */,
+				3A16057E1D68FC4E00BFF535 /* Person.h */,
+				3A16057F1D68FC4E00BFF535 /* Person.m */,
+			);
+			path = SyncDevApp;
+			sourceTree = "<group>";
+		};
+		3A1604C81D68FB8A00BFF535 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A1604C91D68FB8A00BFF535 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A1604DF1D68FB9500BFF535 /* SharkORM Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				3A1604E01D68FB9500BFF535 /* Comms */,
+				3A1604EA1D68FB9500BFF535 /* SharkSync+Private.h */,
+				3A1604EB1D68FB9500BFF535 /* SharkSync.h */,
+				3A1604EC1D68FB9500BFF535 /* SharkSync.m */,
+				3A1604ED1D68FB9500BFF535 /* SRKDeferredChange.h */,
+				3A1604EE1D68FB9500BFF535 /* SRKDeferredChange.m */,
+				3A1604EF1D68FB9500BFF535 /* SRKDefunctObject.h */,
+				3A1604F01D68FB9500BFF535 /* SRKDefunctObject.m */,
+				3A1604F11D68FB9500BFF535 /* SRKPrivateObject.h */,
+				3A1604F21D68FB9500BFF535 /* SRKPrivateObject.m */,
+				3A1604F31D68FB9500BFF535 /* SRKPublicObject.h */,
+				3A1604F41D68FB9500BFF535 /* SRKPublicObject.m */,
+				3A1604F51D68FB9500BFF535 /* SRKSyncAuthObject.h */,
+				3A1604F61D68FB9500BFF535 /* SRKSyncAuthObject.m */,
+				3A1604F71D68FB9500BFF535 /* SRKSyncChange.h */,
+				3A1604F81D68FB9500BFF535 /* SRKSyncChange.m */,
+				3A1604F91D68FB9500BFF535 /* SRKSyncGroup.h */,
+				3A1604FA1D68FB9500BFF535 /* SRKSyncGroup.m */,
+				3A1604FB1D68FB9500BFF535 /* SRKSyncOptions.h */,
+				3A1604FC1D68FB9500BFF535 /* SRKSyncOptions.m */,
+				3A1604FD1D68FB9500BFF535 /* SRKSyncRegisteredClass.h */,
+				3A1604FE1D68FB9500BFF535 /* SRKSyncRegisteredClass.m */,
+			);
+			name = "SharkORM Plugin";
+			path = "../SharkORM Plugin";
+			sourceTree = "<group>";
+		};
+		3A1604E01D68FB9500BFF535 /* Comms */ = {
+			isa = PBXGroup;
+			children = (
+				3A1604E11D68FB9500BFF535 /* BaseCommsObject.h */,
+				3A1604E21D68FB9500BFF535 /* BaseCommsObject.m */,
+				3A1604E31D68FB9500BFF535 /* RequestObjects */,
+				3A1604E61D68FB9500BFF535 /* SRKSyncNodesList.h */,
+				3A1604E71D68FB9500BFF535 /* SRKSyncNodesList.m */,
+				3A1604E81D68FB9500BFF535 /* STHTTPRequest.h */,
+				3A1604E91D68FB9500BFF535 /* STHTTPRequest.m */,
+			);
+			path = Comms;
+			sourceTree = "<group>";
+		};
+		3A1604E31D68FB9500BFF535 /* RequestObjects */ = {
+			isa = PBXGroup;
+			children = (
+				3A1604E41D68FB9500BFF535 /* SyncRequest.h */,
+				3A1604E51D68FB9500BFF535 /* SyncRequest.m */,
+			);
+			path = RequestObjects;
+			sourceTree = "<group>";
+		};
+		3A16050D1D68FBB200BFF535 /* SharkORM */ = {
+			isa = PBXGroup;
+			children = (
+				3A16050E1D68FBB200BFF535 /* Core */,
+				3A1605541D68FBB200BFF535 /* Info.plist */,
+				3A1605551D68FBB200BFF535 /* SQLite */,
+				3A1605591D68FBB200BFF535 /* TODO.rtf */,
+			);
+			name = SharkORM;
+			path = ../../sharkorm/SharkORM;
+			sourceTree = "<group>";
+		};
+		3A16050E1D68FBB200BFF535 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3A16050F1D68FBB200BFF535 /* DBAccess.h */,
+				3A1605101D68FBB200BFF535 /* Events */,
+				3A1605181D68FBB200BFF535 /* FTS */,
+				3A16051B1D68FBB200BFF535 /* FuzzyStore */,
+				3A16051E1D68FBB200BFF535 /* Indexing */,
+				3A1605211D68FBB200BFF535 /* Persistable Objects */,
+				3A1605301D68FBB200BFF535 /* Queries */,
+				3A1605391D68FBB200BFF535 /* Registry */,
+				3A16053E1D68FBB200BFF535 /* SharkORM+Private.h */,
+				3A16053F1D68FBB200BFF535 /* SharkORM.h */,
+				3A1605401D68FBB200BFF535 /* SharkORM.m */,
+				3A1605411D68FBB200BFF535 /* SRKDefinitions.h */,
+				3A1605421D68FBB200BFF535 /* SRKError.m */,
+				3A1605431D68FBB200BFF535 /* SRKLazyLoader.h */,
+				3A1605441D68FBB200BFF535 /* SRKLazyLoader.m */,
+				3A1605451D68FBB200BFF535 /* SRKRelationship.h */,
+				3A1605461D68FBB200BFF535 /* SRKRelationship.m */,
+				3A1605471D68FBB200BFF535 /* SRKSettings.m */,
+				3A1605481D68FBB200BFF535 /* SRKSQLiteHandle.h */,
+				3A1605491D68FBB200BFF535 /* SRKSQLiteHandle.m */,
+				3A16054A1D68FBB200BFF535 /* SRKUtilities.h */,
+				3A16054B1D68FBB200BFF535 /* SRKUtilities.m */,
+				3A16054C1D68FBB200BFF535 /* Transactions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3A1605101D68FBB200BFF535 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				3A1605111D68FBB200BFF535 /* SRKEvent.m */,
+				3A1605121D68FBB200BFF535 /* SRKEventBlockHolder.h */,
+				3A1605131D68FBB200BFF535 /* SRKEventBlockHolder.m */,
+				3A1605141D68FBB200BFF535 /* SRKEventHandler+Private.h */,
+				3A1605151D68FBB200BFF535 /* SRKEventHandler.m */,
+				3A1605161D68FBB200BFF535 /* SRKEventRegistryObject.h */,
+				3A1605171D68FBB200BFF535 /* SRKEventRegistryObject.m */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		3A1605181D68FBB200BFF535 /* FTS */ = {
+			isa = PBXGroup;
+			children = (
+				3A1605191D68FBB200BFF535 /* FTSRegistry.h */,
+				3A16051A1D68FBB200BFF535 /* FTSRegistry.m */,
+			);
+			path = FTS;
+			sourceTree = "<group>";
+		};
+		3A16051B1D68FBB200BFF535 /* FuzzyStore */ = {
+			isa = PBXGroup;
+			children = (
+				3A16051C1D68FBB200BFF535 /* SRKFuzzyStore.h */,
+				3A16051D1D68FBB200BFF535 /* SRKFuzzyStore.m */,
+			);
+			path = FuzzyStore;
+			sourceTree = "<group>";
+		};
+		3A16051E1D68FBB200BFF535 /* Indexing */ = {
+			isa = PBXGroup;
+			children = (
+				3A16051F1D68FBB200BFF535 /* SRKIndexDefinition+Private.h */,
+				3A1605201D68FBB200BFF535 /* SRKIndexDefinition.m */,
+			);
+			path = Indexing;
+			sourceTree = "<group>";
+		};
+		3A1605211D68FBB200BFF535 /* Persistable Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3A1605221D68FBB200BFF535 /* SRKAES256Extension.h */,
+				3A1605231D68FBB200BFF535 /* SRKAES256Extension.m */,
+				3A1605241D68FBB200BFF535 /* SRKEncryptedObject.h */,
+				3A1605251D68FBB200BFF535 /* SRKEncryptedObject.m */,
+				3A1605261D68FBB200BFF535 /* SRKObject+Private.h */,
+				3A1605271D68FBB200BFF535 /* SRKObject.m */,
+				3A1605281D68FBB200BFF535 /* SRKObjectChain.h */,
+				3A1605291D68FBB200BFF535 /* SRKObjectChain.m */,
+				3A16052A1D68FBB200BFF535 /* SRKRawResults.m */,
+				3A16052B1D68FBB200BFF535 /* SRKResultSet+Private.h */,
+				3A16052C1D68FBB200BFF535 /* SRKResultSet.m */,
+				3A16052D1D68FBB200BFF535 /* SRKStringObject.m */,
+				3A16052E1D68FBB200BFF535 /* SRKUnsupportedObject.h */,
+				3A16052F1D68FBB200BFF535 /* SRKUnsupportedObject.m */,
+			);
+			path = "Persistable Objects";
+			sourceTree = "<group>";
+		};
+		3A1605301D68FBB200BFF535 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				3A1605311D68FBB200BFF535 /* SRKFTSQuery.m */,
+				3A1605321D68FBB200BFF535 /* SRKJoinObject.h */,
+				3A1605331D68FBB200BFF535 /* SRKJoinObject.m */,
+				3A1605341D68FBB200BFF535 /* SRKQuery+Private.h */,
+				3A1605351D68FBB200BFF535 /* SRKQuery.m */,
+				3A1605361D68FBB200BFF535 /* SRKQueryAsyncHandler+Private.h */,
+				3A1605371D68FBB200BFF535 /* SRKQueryAsyncHandler.m */,
+				3A1605381D68FBB200BFF535 /* SRKQueryProfile.m */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		3A1605391D68FBB200BFF535 /* Registry */ = {
+			isa = PBXGroup;
+			children = (
+				3A16053A1D68FBB200BFF535 /* SRKRegistry.h */,
+				3A16053B1D68FBB200BFF535 /* SRKRegistry.m */,
+				3A16053C1D68FBB200BFF535 /* SRKRegistryEntry.h */,
+				3A16053D1D68FBB200BFF535 /* SRKRegistryEntry.m */,
+			);
+			path = Registry;
+			sourceTree = "<group>";
+		};
+		3A16054C1D68FBB200BFF535 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				3A16054D1D68FBB200BFF535 /* SRKContext.h */,
+				3A16054E1D68FBB200BFF535 /* SRKContext.m */,
+				3A16054F1D68FBB200BFF535 /* SRKTransaction.m */,
+				3A1605501D68FBB200BFF535 /* SRKTransactionElement.h */,
+				3A1605511D68FBB200BFF535 /* SRKTransactionElement.m */,
+				3A1605521D68FBB200BFF535 /* SRKTransactionGroup.h */,
+				3A1605531D68FBB200BFF535 /* SRKTransactionGroup.m */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		3A1605551D68FBB200BFF535 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				3A1605561D68FBB200BFF535 /* sqlite3.c */,
+				3A1605571D68FBB200BFF535 /* sqlite3.h */,
+				3A1605581D68FBB200BFF535 /* sqlite3ext.h */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A1604C41D68FB8A00BFF535 /* SyncDevApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A1604DC1D68FB8A00BFF535 /* Build configuration list for PBXNativeTarget "SyncDevApp" */;
+			buildPhases = (
+				3A1604C11D68FB8A00BFF535 /* Sources */,
+				3A1604C21D68FB8A00BFF535 /* Frameworks */,
+				3A1604C31D68FB8A00BFF535 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SyncDevApp;
+			productName = SyncDevApp;
+			productReference = 3A1604C51D68FB8A00BFF535 /* SyncDevApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A1604BD1D68FB8A00BFF535 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = SharkSync;
+				TargetAttributes = {
+					3A1604C41D68FB8A00BFF535 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 3A1604C01D68FB8A00BFF535 /* Build configuration list for PBXProject "SyncDevApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A1604BC1D68FB8A00BFF535;
+			productRefGroup = 3A1604C61D68FB8A00BFF535 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A1604C41D68FB8A00BFF535 /* SyncDevApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A1604C31D68FB8A00BFF535 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A16057D1D68FBB200BFF535 /* TODO.rtf in Resources */,
+				3A16057B1D68FBB200BFF535 /* Info.plist in Resources */,
+				3A1604D81D68FB8A00BFF535 /* LaunchScreen.storyboard in Resources */,
+				3A1604D51D68FB8A00BFF535 /* Assets.xcassets in Resources */,
+				3A1604D31D68FB8A00BFF535 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A1604C11D68FB8A00BFF535 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A16056F1D68FBB200BFF535 /* SRKRegistryEntry.m in Sources */,
+				3A1605781D68FBB200BFF535 /* SRKTransaction.m in Sources */,
+				3A16056B1D68FBB200BFF535 /* SRKQuery.m in Sources */,
+				3A1605601D68FBB200BFF535 /* SRKIndexDefinition.m in Sources */,
+				3A1605681D68FBB200BFF535 /* SRKUnsupportedObject.m in Sources */,
+				3A1605701D68FBB200BFF535 /* SharkORM.m in Sources */,
+				3A1605791D68FBB200BFF535 /* SRKTransactionElement.m in Sources */,
+				3A16056C1D68FBB200BFF535 /* SRKQueryAsyncHandler.m in Sources */,
+				3A1605061D68FB9500BFF535 /* SRKPrivateObject.m in Sources */,
+				3A1604D01D68FB8A00BFF535 /* ViewController.m in Sources */,
+				3A1605631D68FBB200BFF535 /* SRKObject.m in Sources */,
+				3A16056A1D68FBB200BFF535 /* SRKJoinObject.m in Sources */,
+				3A1604FF1D68FB9500BFF535 /* BaseCommsObject.m in Sources */,
+				3A1605651D68FBB200BFF535 /* SRKRawResults.m in Sources */,
+				3A1605021D68FB9500BFF535 /* STHTTPRequest.m in Sources */,
+				3A16055F1D68FBB200BFF535 /* SRKFuzzyStore.m in Sources */,
+				3A1605731D68FBB200BFF535 /* SRKRelationship.m in Sources */,
+				3A16050B1D68FB9500BFF535 /* SRKSyncOptions.m in Sources */,
+				3A1605001D68FB9500BFF535 /* SyncRequest.m in Sources */,
+				3A1605691D68FBB200BFF535 /* SRKFTSQuery.m in Sources */,
+				3A1605031D68FB9500BFF535 /* SharkSync.m in Sources */,
+				3A16055A1D68FBB200BFF535 /* SRKEvent.m in Sources */,
+				3A1605801D68FC4E00BFF535 /* Person.m in Sources */,
+				3A16055C1D68FBB200BFF535 /* SRKEventHandler.m in Sources */,
+				3A16050A1D68FB9500BFF535 /* SRKSyncGroup.m in Sources */,
+				3A1605641D68FBB200BFF535 /* SRKObjectChain.m in Sources */,
+				3A16056D1D68FBB200BFF535 /* SRKQueryProfile.m in Sources */,
+				3A1605621D68FBB200BFF535 /* SRKEncryptedObject.m in Sources */,
+				3A16055D1D68FBB200BFF535 /* SRKEventRegistryObject.m in Sources */,
+				3A16057C1D68FBB200BFF535 /* sqlite3.c in Sources */,
+				3A16055B1D68FBB200BFF535 /* SRKEventBlockHolder.m in Sources */,
+				3A1604CD1D68FB8A00BFF535 /* AppDelegate.m in Sources */,
+				3A1605751D68FBB200BFF535 /* SRKSQLiteHandle.m in Sources */,
+				3A1605761D68FBB200BFF535 /* SRKUtilities.m in Sources */,
+				3A1604CA1D68FB8A00BFF535 /* main.m in Sources */,
+				3A1605741D68FBB200BFF535 /* SRKSettings.m in Sources */,
+				3A1605011D68FB9500BFF535 /* SRKSyncNodesList.m in Sources */,
+				3A1605611D68FBB200BFF535 /* SRKAES256Extension.m in Sources */,
+				3A1605041D68FB9500BFF535 /* SRKDeferredChange.m in Sources */,
+				3A1605071D68FB9500BFF535 /* SRKPublicObject.m in Sources */,
+				3A1605661D68FBB200BFF535 /* SRKResultSet.m in Sources */,
+				3A16057A1D68FBB200BFF535 /* SRKTransactionGroup.m in Sources */,
+				3A1605771D68FBB200BFF535 /* SRKContext.m in Sources */,
+				3A16050C1D68FB9500BFF535 /* SRKSyncRegisteredClass.m in Sources */,
+				3A1605671D68FBB200BFF535 /* SRKStringObject.m in Sources */,
+				3A1605051D68FB9500BFF535 /* SRKDefunctObject.m in Sources */,
+				3A1605081D68FB9500BFF535 /* SRKSyncAuthObject.m in Sources */,
+				3A1605721D68FBB200BFF535 /* SRKLazyLoader.m in Sources */,
+				3A1605711D68FBB200BFF535 /* SRKError.m in Sources */,
+				3A16055E1D68FBB200BFF535 /* FTSRegistry.m in Sources */,
+				3A1605091D68FB9500BFF535 /* SRKSyncChange.m in Sources */,
+				3A16056E1D68FBB200BFF535 /* SRKRegistry.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3A1604D11D68FB8A00BFF535 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A1604D21D68FB8A00BFF535 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3A1604D61D68FB8A00BFF535 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A1604D71D68FB8A00BFF535 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A1604DA1D68FB8A00BFF535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A1604DB1D68FB8A00BFF535 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A1604DD1D68FB8A00BFF535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SyncDevApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sharksync.SyncDevApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3A1604DE1D68FB8A00BFF535 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SyncDevApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sharksync.SyncDevApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A1604C01D68FB8A00BFF535 /* Build configuration list for PBXProject "SyncDevApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A1604DA1D68FB8A00BFF535 /* Debug */,
+				3A1604DB1D68FB8A00BFF535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A1604DC1D68FB8A00BFF535 /* Build configuration list for PBXNativeTarget "SyncDevApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A1604DD1D68FB8A00BFF535 /* Debug */,
+				3A1604DE1D68FB8A00BFF535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A1604BD1D68FB8A00BFF535 /* Project object */;
+}

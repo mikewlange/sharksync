@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4F45A801173533CAC9108B1E7C1FDAE0050F37CD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4F45A801173533CAC9108B1E7C1FDAE0050F37CD" : 0,
+    "96D86864D576B39C72B29A1CB8017AF09F0454C5" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "20DD61C3-B12E-4B70-B6AA-96BB31CA6D9A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4F45A801173533CAC9108B1E7C1FDAE0050F37CD" : "sharksync\/",
+    "96D86864D576B39C72B29A1CB8017AF09F0454C5" : "sharkorm\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SyncDevApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SyncDevApp\/SyncDevApp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sharksync\/sharksync.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4F45A801173533CAC9108B1E7C1FDAE0050F37CD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sharksync\/sharkorm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "96D86864D576B39C72B29A1CB8017AF09F0454C5"
+    }
+  ]
+}

@@ -33,6 +33,7 @@
 }
 
 - (NSMutableDictionary *)requestObject {
+    
     // get the default data from the super class
     NSMutableDictionary* requestData = [super requestObject];
     
@@ -185,7 +186,8 @@
     return @{
              @"path" : change.path,
              @"value" : change.value ? change.value : @" ",
-             @"secondsAgo" : @([NSDate date].timeIntervalSince1970 - change.timestamp.doubleValue)
+             @"secondsAgo" : @([NSDate date].timeIntervalSince1970 - change.timestamp.doubleValue),
+             @"operation" : @(change.action)
              };
 }
 

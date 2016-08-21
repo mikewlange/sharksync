@@ -119,7 +119,8 @@
     
     return [NSMutableDictionary dictionaryWithDictionary:@{@"app_id" : self.app_id ? self.app_id : [NSNull null],
              @"app_api_access_key" : self.app_api_access_key ? self.app_api_access_key : [NSNull null],
-             @"device_id" : @"9e4ac6a5-aac3-4362-b530-0be53a9e6619"}]; //self.device_id ? self.device_id : [NSNull null]
+             @"device_id" : self.device_id ? self.device_id : [NSNull null]}];
+    
 }
 
 @end

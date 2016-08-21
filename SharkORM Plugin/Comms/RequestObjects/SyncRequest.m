@@ -90,8 +90,6 @@
         }
     }
     
-    return;
-    
     /* now work through the response */
     NSDictionary* data = [response objectForKey:@"data"];
     if (data) {
@@ -128,6 +126,7 @@
                 
                 NSString* path = [change objectForKey:@"change"];
                 NSString* value = [change objectForKey:@"value"];
+                NSNumber* 
                 timestamp = [change objectForKey:@"timestamp"];
                 
                 NSArray* components = [path componentsSeparatedByString:@"/"];

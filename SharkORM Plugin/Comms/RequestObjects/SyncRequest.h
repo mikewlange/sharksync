@@ -11,6 +11,4 @@
 
 @interface SyncRequest : BaseCommsObject
 
-@property (strong) NSDictionary* groupChanges;
-
 @end

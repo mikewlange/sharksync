@@ -39,27 +39,76 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         @autoreleasepool {
-            
-            while ([[SharkSyncChange query] count]) {
-                @autoreleasepool {
-                    SyncRequest* re = [SyncRequest new];
-                    [re execute];
-                }
-            }
-        }
-        
-        @autoreleasepool {
             for (int i=1; i < 1000000; i++) {
                 
-                int index = rand() % (25);
-                
                 @autoreleasepool {
+                    int index = rand() % (25);
                     Person* p = [Person new];
                     p.name = [[NSUUID UUID] UUIDString];
                     p.age = rand() % (85);
                     p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
                     [p commitInGroup:[groups objectAtIndex:index]];
                 }
+                
+                @autoreleasepool {
+                    int index = rand() % (25);
+                    Person* p = [Person new];
+                    p.name = [[NSUUID UUID] UUIDString];
+                    p.age = rand() % (85);
+                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+                    [p commitInGroup:[groups objectAtIndex:index]];
+                }
+                
+                @autoreleasepool {
+                    int index = rand() % (25);
+                    Person* p = [Person new];
+                    p.name = [[NSUUID UUID] UUIDString];
+                    p.age = rand() % (85);
+                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+                    [p commitInGroup:[groups objectAtIndex:index]];
+                }
+                
+                @autoreleasepool {
+                    int index = rand() % (25);
+                    Person* p = [Person new];
+                    p.name = [[NSUUID UUID] UUIDString];
+                    p.age = rand() % (85);
+                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+                    [p commitInGroup:[groups objectAtIndex:index]];
+                }
+                
+                @autoreleasepool {
+                    int index = rand() % (25);
+                    Person* p = [Person new];
+                    p.name = [[NSUUID UUID] UUIDString];
+                    p.age = rand() % (85);
+                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+                    [p commitInGroup:[groups objectAtIndex:index]];
+                }
+                
+                @autoreleasepool {
+                    int index = rand() % (25);
+                    Person* p = [Person new];
+                    p.name = [[NSUUID UUID] UUIDString];
+                    p.age = rand() % (85);
+                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+                    [p commitInGroup:[groups objectAtIndex:index]];
+                }
+                
+                @autoreleasepool {
+                    int index = rand() % (25);
+                    Person* p = [Person new];
+                    p.name = [[NSUUID UUID] UUIDString];
+                    p.age = rand() % (85);
+                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+                    [p commitInGroup:[groups objectAtIndex:index]];
+                }
+                
+                @autoreleasepool {
+                    SyncRequest* re = [SyncRequest new];
+                    [re execute];
+                }
+                
                 
             }
         }

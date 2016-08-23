@@ -23,6 +23,13 @@
 
 @end
 
+@interface SyncRequest ()
+
+@property (strong) SRKResultSet* changes;
+@property (strong) SRKResultSet* groups;
+
+@end
+
 @implementation SyncRequest
 
 - (void)execute {
@@ -31,63 +38,53 @@
     
     SRKSyncNodesList* nodes = [SRKSyncNodesList new];
     [nodes addNodeWithAddress:@"http://api.sharksync.com:80" priority:1];
-    
     [self makeRequestToMethod:@"sync" apiVersion:@"" toNodes:nodes];
-    
-    while (self.inProgress) {
-        [NSThread sleepForTimeInterval:0.1];
-    }
     
 }
 
 - (NSMutableDictionary *)requestObject {
     
+    // pull out a reasonable amount of writes to be sent to the server
+    
     // get the default data from the super class
     NSMutableDictionary* requestData = [super requestObject];
     
+    // now query the sync changes table
+    SRKResultSet* changeResults = [[[[SharkSyncChange query] limit:50] orderBy:@"timestamp"] fetch];
+    self.changes = changeResults;
+    
     // now add in the changes, and the tidemarks
-    NSMutableDictionary* registeredGroups = [NSMutableDictionary new];
-    for (NSString* grp in [[[SRKSyncGroup query]  limit:50] distinct:@"groupName"]) {
-        [registeredGroups setObject:@(1) forKey:grp];
-    }
-    for (NSString* grp in [[[[SharkSyncChange query] limit:50] orderBy:@"timestamp"] distinct:@"recordGroup"]) {
-        [registeredGroups setObject:@(1) forKey:grp];
+    NSMutableArray* changes = [NSMutableArray new];
+    
+    for (SharkSyncChange* change in changeResults) {
+        [changes addObject:
+         @{
+               @"path" : change.path,
+               @"value" : change.value,
+               @"secondsAgo" : @([[NSDate date] timeIntervalSince1970] - change.timestamp.doubleValue),
+               @"group" : change.recordGroup,
+               @"operation" : @(change.action)
+           }
+        ];
     }
     
-    if (registeredGroups.allKeys.count > 0) {
-        
-        self.groupChanges = [[[[SharkSyncChange query] limit:50] orderBy:@"timestamp"] groupBy:@"recordGroup"];
-        
-        NSMutableArray* allGroups = [NSMutableArray new];
-        
-        for (NSString* groupName in registeredGroups.allKeys) {
-            
-            NSMutableDictionary* groupData = [NSMutableDictionary new];
-            
-            [groupData setObject:groupName forKey:@"group"];
-            SRKSyncGroup* grp = [[[SRKSyncGroup query] whereWithFormat:@"groupName=%@", groupName] fetch].firstObject;
-            
-            if (grp) {
-                [groupData setObject: grp.tidemark_uuid ? grp.tidemark_uuid : [NSNull null] forKey:@"tidemark"];
-            }
-            
-            NSArray* records = [self.groupChanges objectForKey:groupName];
-            NSMutableArray* changeData = [NSMutableArray new];
-            if (records) {
-                for (SharkSyncChange* change in records) {
-                    [changeData addObject: [self dictionaryForChangeItem:change] ];
-                }
-            }
-            
-            [groupData setObject:changeData forKey:@"changes"];
-            
-            [allGroups addObject:groupData];
-            
-        }
-        
-        [requestData setObject:allGroups forKey:@"groups"];
-        
+    [requestData setObject:changes forKey:@"changes"];
+    
+    // now select out the data groups to poll for
+    SRKResultSet* groupResults = [[[[SRKSyncGroup query] limit:5] orderBy:@"last_polled"] fetch];
+    self.groups = groupResults;
+    
+    NSMutableArray* groups = [NSMutableArray new];
+    for (SRKSyncGroup* group in groupResults) {
+        [groups addObject:
+         @{
+            @"group" : group.groupName,
+            @"tidemark" : group.tidemark_uuid ? group.tidemark_uuid : [NSNull null]
+          }
+         ];
     }
+    
+    [requestData setObject:groups forKey:@"groups"];
     
     return requestData;
     
@@ -97,12 +94,7 @@
 - (void)requestResponded:(NSDictionary *)response {
     
     /* clear down the transmitted data, as we know it arrived okay */
-    for (NSString* key in self.groupChanges.allKeys) {
-        NSArray* records = [self.groupChanges objectForKey:key];
-        for (SharkSyncChange* change in records) {
-            [change remove];
-        }
-    }
+    [self.changes removeAll];
     
     /* now work through the response */
     NSDictionary* data = [response objectForKey:@"data"];
@@ -123,7 +115,7 @@
                     
                     options.device_id = [[NSUUID UUID] UUIDString];
                     [options commit];
-
+                    
                     return;
                 }
             }
@@ -255,6 +247,7 @@
             SRKSyncGroup* grp = [SRKSyncGroup groupWithEncodedName:group_id];
             if (grp) {
                 grp.tidemark_uuid = timestamp;
+                grp.last_polled = @([NSDate date].timeIntervalSince1970);
                 [grp commit];
             }
             

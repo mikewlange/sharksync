@@ -26,7 +26,7 @@
 
 @implementation SRKSyncGroup
 
-@dynamic groupName,tidemark_uuid;
+@dynamic groupName,tidemark_uuid, last_polled;
 
 + (SRKSyncGroup *)groupWithEncodedName:(NSString *)name {
     return [[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", name] limit:1] fetch].firstObject;

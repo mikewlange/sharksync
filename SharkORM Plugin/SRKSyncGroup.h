@@ -28,6 +28,7 @@
 
 @property (strong) NSString*    groupName;
 @property (strong) NSString*    tidemark_uuid;
+@property (strong) NSNumber*    last_polled;
 
 + (SRKSyncGroup*)groupWithEncodedName:(NSString*)name;
 

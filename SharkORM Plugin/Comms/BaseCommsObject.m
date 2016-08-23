@@ -62,43 +62,31 @@
         
         r.completionBlock = ^(NSDictionary *headers, NSString *body) {
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                
-                NSError* error;
-                NSDictionary* responseObject = [NSJSONSerialization JSONObjectWithData:[body dataUsingEncoding:NSASCIIStringEncoding] options:NSJSONReadingMutableContainers error:&error];
-                
-                if (!error) {
-                    [weakSelf requestResponded:responseObject];
-                } else {
-                    // deal with this, by requesting again?  but incremement the fail count.
-                    _failCount++;
-                    [weakSelf generateRequest];
-                }
-                
-                self.inProgress = NO;
-                
-            });
+            NSError* error;
+            NSDictionary* responseObject = [NSJSONSerialization JSONObjectWithData:[body dataUsingEncoding:NSASCIIStringEncoding] options:NSJSONReadingMutableContainers error:&error];
             
+            if (!error) {
+                [weakSelf requestResponded:responseObject];
+            } else {
+                // deal with this, by requesting again?  but incremement the fail count.
+                _failCount++;
+                [weakSelf generateRequest];
+            }
             
+            self.inProgress = NO;
             
         };
         
         r.errorBlock = ^(NSError *error) {
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                
-                // work out which kind of error it was, and act appropriately.  Trying again is possible.
-                _failCount++;
-                
-                if (_failCount == 5) {
-                    [weakSelf requestDidError:error];
-                }
-                
-                self.inProgress = NO;
-                
-            });
+            // work out which kind of error it was, and act appropriately.  Trying again is possible.
+            _failCount++;
             
+            if (_failCount == 5) {
+                [weakSelf requestDidError:error];
+            }
             
+            self.inProgress = NO;
             
         };
         

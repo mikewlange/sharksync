@@ -25,7 +25,9 @@
 
 @interface SRKDeferredChange : SRKObject
 
-@property (strong) NSString*    path;
+@property (strong) NSString*    className;
+@property (strong) NSString*    key;
+@property (strong) NSString*    property;
 @property (strong) NSString*    value;
 
 @end

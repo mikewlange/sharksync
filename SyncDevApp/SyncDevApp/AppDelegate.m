@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Person.h"
 #import "SyncRequest.h"
+#import "SRKSyncChange.h"
 
 @interface AppDelegate ()
 
@@ -24,20 +25,46 @@
     [SharkORM openDatabaseNamed:@"test"];
     [SharkSync startServiceWithApplicationId:@"4532bd8a-7c8d-4e37-8e36-95548f29b7eb" apiKey:@"681b8350-7f07-4953-a027-bba47e6a9d96"];
     
-//    [SharkSync addVisibilityGroup:@"group_a"];
-//    
-//    Person* p = [Person new];
-//    p.name = @"Adrian Herridge";
-//    p.age = 37;
-//    p.address = @[@"20 Sherwood Close", @"Liss Forest", @"Liss", @"Hampshire", @"GU33 7BT"];
-//    
-//    [p commitInGroup:@"group_a"];
-//    
-//    p.age = 38;
-//    [p commitInGroup:@"group_a"];
+    NSArray* groups = @[@"group_a",@"group_b",@"group_c",@"group_d",@"group_e",@"group_f",@"group_g",@"group_h",
+                        @"group_p",@"group_o",@"group_n",@"group_m",@"group_l",@"group_k",@"group_j",@"group_i",
+                        @"group_q",@"group_r",@"group_s",@"group_t",@"group_u",@"group_v",@"group_w",@"group_x",
+                        @"group_y",@"group_z"];
     
-    SyncRequest* re = [SyncRequest new];
-    [re execute];
+    for (NSString* grp in groups) {
+        [SharkSync addVisibilityGroup:grp];
+    }
+    
+    srand([[NSDate date] timeIntervalSince1970]);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        @autoreleasepool {
+            
+            while ([[SharkSyncChange query] count]) {
+                @autoreleasepool {
+                    SyncRequest* re = [SyncRequest new];
+                    [re execute];
+                }
+            }
+        }
+        
+        @autoreleasepool {
+            for (int i=1; i < 1000000; i++) {
+                
+                int index = rand() % (25);
+                
+                @autoreleasepool {
+                    Person* p = [Person new];
+                    p.name = [[NSUUID UUID] UUIDString];
+                    p.age = rand() % (85);
+                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+                    [p commitInGroup:[groups objectAtIndex:index]];
+                }
+                
+            }
+        }
+        
+    });
     
     return YES;
 }

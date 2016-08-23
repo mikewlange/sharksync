@@ -184,6 +184,12 @@
     
 }
 
+- (BOOL)__commitRawWithObjectChainNoSync:(SRKObjectChain *)chain {
+    
+    return [super __commitRawWithObjectChain:[SRKObjectChain new]];
+    
+}
+
 - (BOOL)__removeRawNoSync {
     return [super __removeRaw];
 }

@@ -127,6 +127,110 @@ typedef NSImage XXImage;
     [[SharkSync sharedObject].concurrentRecordGroups removeObjectForKey:[NSString stringWithFormat:@"%@", [NSThread currentThread]]];
 }
 
++ (id)decryptValue:(NSString*)value {
+    
+    // the problem with base64 is that it can contain "/" chars!
+    if (!value) {
+        return nil;
+    }
+    if (![value containsString:@"/"]) {
+        return nil;
+    }
+
+    NSRange r = [value rangeOfString:@"/"];
+    NSString* type = [value substringToIndex:r.location];
+    NSString* data = [value substringFromIndex:r.location+1];
+    
+    NSData* dValue = [[NSData alloc] initWithBase64EncodedString:data options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    // call the block in the sync settings to encrypt the data
+    SharkSync* sync = [SharkSync sharedObject];
+    SharkSyncSettings* settings = sync.settings;
+    
+    dValue = settings.decryptBlock(dValue);
+    
+    
+        if ([type isEqualToString:@"text"]) {
+            
+            // turn the data back to a string
+            NSString* sValue = [[NSString alloc] initWithData:dValue encoding:NSUnicodeStringEncoding];
+            
+            return sValue;
+            
+        } else if ([type isEqualToString:@"number"]) {
+            
+            // turn the data back to a string
+            NSString* sValue = [[NSString alloc] initWithData:dValue encoding:NSUnicodeStringEncoding];
+            
+            // now turn the sValue back to it's original value
+            NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+            f.numberStyle = NSNumberFormatterDecimalStyle;
+            return [f numberFromString:sValue];
+            
+        } else if ([type isEqualToString:@"date"]) {
+
+            // turn the data back to a string
+            NSString* sValue = [[NSString alloc] initWithData:dValue encoding:NSUnicodeStringEncoding];
+            
+            // now turn the sValue back to it's original value
+            NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+            f.numberStyle = NSNumberFormatterDecimalStyle;
+            return [NSDate dateWithTimeIntervalSince1970:[f numberFromString:sValue].doubleValue];
+            
+        } else if ([type isEqualToString:@"bytes"]) {
+            
+            return dValue;
+            
+        } else if ([type isEqualToString:@"image"]) {
+
+            // turn the data back to an image
+            return [UIImage imageWithData:dValue];
+            
+        } else if ([type isEqualToString:@"mdictionary"] || [type isEqualToString:@"dictionary"] || [type isEqualToString:@"marray"] || [type isEqualToString:@"array"]) {
+
+            NSError* error;
+            
+            if ([type isEqualToString:@"mdictionary"]) {
+                
+                return [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:dValue options:NSJSONReadingMutableLeaves error:&error]];
+                
+            } else if ([type isEqualToString:@"dictionary"]) {
+                
+                return [NSDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:dValue options:NSJSONReadingMutableLeaves error:&error]];
+                
+            } else if ([type isEqualToString:@"array"]) {
+                
+                return [NSArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:dValue options:NSJSONReadingMutableLeaves error:&error]];
+                
+            } else if ([type isEqualToString:@"marray"]) {
+                
+                return [NSMutableArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:dValue options:NSJSONReadingMutableLeaves error:&error]];
+                
+            }
+            
+            
+        }  else if ([type isEqualToString:@"entity"]) {
+            
+            NSData* dValue = [[NSData alloc] initWithBase64EncodedData:[NSData dataWithBytes:data.UTF8String length:data.length] options:0];
+            
+            // call the block in the sync settings to encrypt the data
+            SharkSync* sync = [SharkSync sharedObject];
+            SharkSyncSettings* settings = sync.settings;
+            
+            dValue = settings.decryptBlock(dValue);
+            
+            // turn the data back to a string
+            NSString* sValue = [[NSString alloc] initWithData:dValue encoding:NSUnicodeStringEncoding];
+            
+            // now turn the sValue back to it's original value
+            return sValue;
+            
+        }
+    
+    return nil;
+    
+}
+
 + (void)queueObject:(SRKObject *)object withChanges:(NSMutableDictionary*)changes withOperation:(SharkSyncOperation)operation inHashedGroup:(NSString*)group {
     
     if (operation == SharkSyncOperationCreate || operation == SharkSyncOperationSet) {

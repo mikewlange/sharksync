@@ -28,4 +28,8 @@
 
 @dynamic groupName,tidemark_uuid;
 
++ (SRKSyncGroup *)groupWithEncodedName:(NSString *)name {
+    return [[[[SRKSyncGroup query] whereWithFormat:@"groupName = %@", name] limit:1] fetch].firstObject;
+}
+
 @end

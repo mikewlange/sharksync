@@ -30,6 +30,7 @@
 @property (strong) NSString* app_id;
 @property (strong) NSString* app_api_access_key;
 @property (strong) NSString* device_id;
+@property BOOL inProgress;
 
 - (void)makeRequestToMethod:(NSString*)method apiVersion:(NSString*)apiVersion toNodes:(SRKSyncNodesList*)nodes;
 

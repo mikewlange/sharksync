@@ -29,4 +29,6 @@
 @property (strong) NSString*    groupName;
 @property (strong) NSString*    tidemark_uuid;
 
++ (SRKSyncGroup*)groupWithEncodedName:(NSString*)name;
+
 @end

@@ -26,6 +26,6 @@
 
 @implementation SRKDeferredChange
 
-@dynamic path,value;
+@dynamic className,key,property,value;
 
 @end

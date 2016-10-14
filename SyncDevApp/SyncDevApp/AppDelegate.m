@@ -36,86 +36,80 @@
     
     srand([[NSDate date] timeIntervalSince1970]);
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        @autoreleasepool {
-            for (int i=1; i < 1000000; i++) {
-                
-                @autoreleasepool {
-                    int index = rand() % (25);
-                    Person* p = [Person new];
-                    p.name = [[NSUUID UUID] UUIDString];
-                    p.age = rand() % (85);
-                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
-                    [p commitInGroup:[groups objectAtIndex:index]];
-                }
-                
-                @autoreleasepool {
-                    int index = rand() % (25);
-                    Person* p = [Person new];
-                    p.name = [[NSUUID UUID] UUIDString];
-                    p.age = rand() % (85);
-                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
-                    [p commitInGroup:[groups objectAtIndex:index]];
-                }
-                
-                @autoreleasepool {
-                    int index = rand() % (25);
-                    Person* p = [Person new];
-                    p.name = [[NSUUID UUID] UUIDString];
-                    p.age = rand() % (85);
-                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
-                    [p commitInGroup:[groups objectAtIndex:index]];
-                }
-                
-                @autoreleasepool {
-                    int index = rand() % (25);
-                    Person* p = [Person new];
-                    p.name = [[NSUUID UUID] UUIDString];
-                    p.age = rand() % (85);
-                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
-                    [p commitInGroup:[groups objectAtIndex:index]];
-                }
-                
-                @autoreleasepool {
-                    int index = rand() % (25);
-                    Person* p = [Person new];
-                    p.name = [[NSUUID UUID] UUIDString];
-                    p.age = rand() % (85);
-                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
-                    [p commitInGroup:[groups objectAtIndex:index]];
-                }
-                
-                @autoreleasepool {
-                    int index = rand() % (25);
-                    Person* p = [Person new];
-                    p.name = [[NSUUID UUID] UUIDString];
-                    p.age = rand() % (85);
-                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
-                    [p commitInGroup:[groups objectAtIndex:index]];
-                }
-                
-                @autoreleasepool {
-                    int index = rand() % (25);
-                    Person* p = [Person new];
-                    p.name = [[NSUUID UUID] UUIDString];
-                    p.age = rand() % (85);
-                    p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
-                    [p commitInGroup:[groups objectAtIndex:index]];
-                }
-                
-                @autoreleasepool {
-                    SyncRequest* re = [SyncRequest new];
-                    [re execute];
-                }
-                
-                
-            }
-        }
-        
-    });
+    @autoreleasepool {
+        int index = rand() % (25);
+        Person* p = [Person new];
+        p.name = [[NSUUID UUID] UUIDString];
+        p.age = rand() % (85);
+        p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+        [p commitInGroup:[groups objectAtIndex:index]];
+    }
+    
+    @autoreleasepool {
+        int index = rand() % (25);
+        Person* p = [Person new];
+        p.name = [[NSUUID UUID] UUIDString];
+        p.age = rand() % (85);
+        p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+        [p commitInGroup:[groups objectAtIndex:index]];
+    }
+    
+    @autoreleasepool {
+        int index = rand() % (25);
+        Person* p = [Person new];
+        p.name = [[NSUUID UUID] UUIDString];
+        p.age = rand() % (85);
+        p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+        [p commitInGroup:[groups objectAtIndex:index]];
+    }
+    
+    @autoreleasepool {
+        int index = rand() % (25);
+        Person* p = [Person new];
+        p.name = [[NSUUID UUID] UUIDString];
+        p.age = rand() % (85);
+        p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+        [p commitInGroup:[groups objectAtIndex:index]];
+    }
+    
+    @autoreleasepool {
+        int index = rand() % (25);
+        Person* p = [Person new];
+        p.name = [[NSUUID UUID] UUIDString];
+        p.age = rand() % (85);
+        p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+        [p commitInGroup:[groups objectAtIndex:index]];
+    }
+    
+    @autoreleasepool {
+        int index = rand() % (25);
+        Person* p = [Person new];
+        p.name = [[NSUUID UUID] UUIDString];
+        p.age = rand() % (85);
+        p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+        [p commitInGroup:[groups objectAtIndex:index]];
+    }
+    
+    @autoreleasepool {
+        int index = rand() % (25);
+        Person* p = [Person new];
+        p.name = [[NSUUID UUID] UUIDString];
+        p.age = rand() % (85);
+        p.address = @[[[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString], [[NSUUID UUID] UUIDString]];
+        [p commitInGroup:[groups objectAtIndex:index]];
+    }
+    
+    static NSTimer* timer = nil;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(sync) userInfo:nil repeats:YES];
     
     return YES;
+}
+
+- (void)sync {
+    @autoreleasepool {
+        SyncRequest* re = [SyncRequest new];
+        [re execute];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

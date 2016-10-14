@@ -37,7 +37,7 @@
     self.inProgress = YES;
     
     SRKSyncNodesList* nodes = [SRKSyncNodesList new];
-    [nodes addNodeWithAddress:@"http://api.sharksync.com:80" priority:1];
+    [nodes addNodeWithAddress:@"http://127.0.0.1:8080" priority:1];
     [self makeRequestToMethod:@"sync" apiVersion:@"" toNodes:nodes];
     
 }

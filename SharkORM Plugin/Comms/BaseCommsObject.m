@@ -118,7 +118,7 @@
     // also overridden in implementaion, taking this value and merging it in
     
     self.app_id = [[SharkSync sharedObject] applicationKey];
-    self.device_id = [[SharkSync sharedObject] deviceId];
+    self.device_id = @"9e4ac6a5-aac3-4362-b530-0be53a9e6619";//[[SharkSync sharedObject] deviceId];
     self.app_api_access_key = [[SharkSync sharedObject] accountKeyKey];
     
     return [NSMutableDictionary dictionaryWithDictionary:@{@"app_id" : self.app_id ? self.app_id : [NSNull null],
